@@ -16,6 +16,9 @@ import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import PeopleIcon from '@material-ui/icons/People';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import PlayersContainer from '../containers/PlayersContainer'
+import TeamsContainer from '../containers/TeamsContainer'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,6 +56,8 @@ export default function Header() {
         setState({...state, [anchor]: open});
     }
 
+    const topList = [(<Link to={`/home/players`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Players</Link>), (<Link to={`/home/teams`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Teams</Link>)]
+
     const list = (anchor) => (
         <div
             className={clsx(menuClasses.list, {
@@ -63,7 +68,7 @@ export default function Header() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Players', 'Teams'].map((text, index) => (
+                {topList.map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>{index % 2 === 0 ? <DirectionsRunIcon /> : <PeopleIcon />}</ListItemIcon>
                         <ListItemText primary={text} />
@@ -84,21 +89,29 @@ export default function Header() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
-                        The Sports Report
-                    </Typography>
-                    <React.Fragment key="right">
-                        <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer("right", true)}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Drawer anchor="right" open={state["right"]} onClose={toggleDrawer("right", false)}>
-                            {list("right")}
-                        </Drawer>
-                    </React.Fragment>
-                </Toolbar>
-            </AppBar>
+            <Router>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h6" className={classes.title}>
+                            The Sports Report
+                        </Typography>
+                        <React.Fragment key="right">
+                            <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer("right", true)}>
+                                <MenuIcon />
+                            </IconButton>
+                            <Drawer anchor="right" open={state["right"]} onClose={toggleDrawer("right", false)}>
+                                {list("right")}
+                            </Drawer>
+                        </React.Fragment>
+                    </Toolbar>
+                </AppBar>
+
+                <Switch>
+                    <Route path="/home/players" component={PlayersContainer} />
+                    <Route path="/home/teams" component={TeamsContainer} />
+                    {/*NEED TO PUT IN ROUTES FOR PROFILE AND LOGOUT}*/}
+                </Switch>
+            </Router>
         </div>
     );
 }
