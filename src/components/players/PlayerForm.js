@@ -1,9 +1,11 @@
 import React from 'react';
+import PlayerResults from './PlayerResults'
 
 class PlayerForm extends React.Component {
     state = {
         searchPlayer: "",
-        searchResults: []
+        searchResults: [],
+        searched: false
     }
 
     handleSearchChange = (event) => {
@@ -23,7 +25,8 @@ class PlayerForm extends React.Component {
         .then(data => {
             console.log(data.player)
             this.setState({
-                searchResults: data.player
+                searchResults: data.player,
+                searched: true
             })
         })
 
@@ -37,6 +40,7 @@ class PlayerForm extends React.Component {
                     <input type="text" name="searchPlayer" onChange={this.handleSearchChange} value={this.state.searchPlayer} />
                     <input type="submit" value="Search" />
                 </form>
+                {this.state.searched === true ? <PlayerResults searchResults={this.state.searchResults}/> : "No Search Performed"}
             </div>
         )
     }
