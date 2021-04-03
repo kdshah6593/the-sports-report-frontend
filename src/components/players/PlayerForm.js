@@ -20,6 +20,9 @@ class PlayerForm extends React.Component {
         const url = "https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?p="
         console.log("Form has been submitted")
         let player = this.state.searchPlayer.replace(" ", "%20")
+        this.setState({
+            searchPlayer: ""
+        })
         fetch(url+`${player}`)
         .then(resp => resp.json())
         .then(data => {
