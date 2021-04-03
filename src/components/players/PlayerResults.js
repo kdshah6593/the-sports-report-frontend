@@ -1,11 +1,29 @@
 import React from 'react';
 
 class PlayerResults extends React.Component {
+    state = {
+        selectedOption: "",
+        searchResults: this.props.searchResults
+    }
+    
+    handleOptionChange = (event) => {
+        console.log(event.target.value)
+        this.setState({
+            selectedOption: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const selectedPlayer = this.state.searchResults[this.state.selectedOption]
+        // this will send a fetch post request to the backend
+    }
+    
     render() {
-        const players = this.props.searchResults.map(player => <label><input type="radio" name="player" key={player.idPlayer} value={player.strPlayer}/>{player.strPlayer} - {player.strSport}</label>)
+        const players = this.props.searchResults.map((player, index) => <label key={player.idPlayer}><input type="radio" name="player" value={index} onChange={this.handleOptionChange}/>{player.strPlayer} - {player.strSport}</label>)
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     {players}
                     <input type="submit" value="Add Player" />
                 </form>
