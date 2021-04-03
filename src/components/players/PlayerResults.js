@@ -17,6 +17,7 @@ class PlayerResults extends React.Component {
         event.preventDefault();
         const selectedPlayer = this.state.searchResults[this.state.selectedOption]
         // this will send a fetch post request to the backend
+        // create the object here with the information needed for backend like name, sport, team to be stringifed
     }
     
     render() {
