@@ -1,23 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router';
 
-class PlayerResults extends React.Component {
-    state = {
-        selectedOption: "",
-        searchResults: this.props.searchResults
-    }
+const PlayerResults = (props) => {
+    // state = {
+    //     selectedOption: "",
+    //     searchResults: this.props.searchResults
+    // }
 
-    
-    
-    handleOptionChange = (event) => {
+    const [selectedOption, setSelectedOption] = useState("");
+    const [searchResults, setSearchResults] = useState(props.searchResults)
+
+    let history = useHistory()
+
+    const handleOptionChange = (event) => {
         console.log(event.target.value)
-        this.setState({
-            selectedOption: event.target.value
-        })
+        setSelectedOption(event.target.value)
+        // this.setState({
+        //     selectedOption: event.target.value
+        // })
     }
 
-    handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const selectedPlayer = this.state.searchResults[this.state.selectedOption]
+        const selectedPlayer = searchResults[selectedOption]
         const dataToSend = {
             name: selectedPlayer.strPlayer,
             sport: selectedPlayer.strSport,
@@ -34,20 +39,21 @@ class PlayerResults extends React.Component {
             body: JSON.stringify(dataToSend)
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(updatedUser => {
+            {/* Need to update the store with mapDispatchToProps Here */}
+            history.push("http://localhost:3000/home/players")
+        })
     }
     
-    render() {
-        const players = this.props.searchResults.map((player, index) => <label key={player.idPlayer}><input type="radio" name="player" value={index} onChange={this.handleOptionChange}/>{player.strPlayer} - {player.strSport}</label>)
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    {players}
-                    <input type="submit" value="Add Player" />
-                </form>
-            </div>
-        )
-    }
+    const players = props.searchResults.map((player, index) => <label key={player.idPlayer}><input type="radio" name="player" value={index} onChange={handleOptionChange}/>{player.strPlayer} - {player.strSport}</label>)
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                {players}
+                <input type="submit" value="Add Player" />
+            </form>
+        </div>
+    )
 }
 
 export default PlayerResults;
