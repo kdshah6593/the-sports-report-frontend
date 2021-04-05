@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 const PlayerResults = (props) => {
-    // state = {
-    //     selectedOption: "",
-    //     searchResults: this.props.searchResults
-    // }
 
     const [selectedOption, setSelectedOption] = useState("");
     const [searchResults, setSearchResults] = useState(props.searchResults)
@@ -15,9 +12,6 @@ const PlayerResults = (props) => {
     const handleOptionChange = (event) => {
         console.log(event.target.value)
         setSelectedOption(event.target.value)
-        // this.setState({
-        //     selectedOption: event.target.value
-        // })
     }
 
     const handleSubmit = (event) => {
@@ -40,8 +34,8 @@ const PlayerResults = (props) => {
         })
         .then(response => response.json())
         .then(updatedUser => {
-            {/* Need to update the store with mapDispatchToProps Here */}
-            history.push("http://localhost:3000/home/players")
+            props.addPlayer(updatedUser)
+            history.push("/home/players")
         })
     }
     
@@ -56,4 +50,10 @@ const PlayerResults = (props) => {
     )
 }
 
-export default PlayerResults;
+const mapDispatchToProps = dispatch => {
+    return {
+        addPlayer: userData => dispatch({type: 'ADD_PLAYER', payload: userData })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PlayerResults);
