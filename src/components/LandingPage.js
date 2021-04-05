@@ -1,5 +1,6 @@
 import React from 'react';
 import PlayerForm from './players/PlayerForm';
+import TeamForm from './teams/TeamForm'
 
 class LandingPage extends React.Component {
     render() {
@@ -7,6 +8,7 @@ class LandingPage extends React.Component {
             <div>
                 This is the landing page.
                 <PlayerForm />
+                <TeamForm />
             </div>
         )
     }
