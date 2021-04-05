@@ -20,3 +20,5 @@
 11. Check that routing is properly configured
 
 12. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
+
+13. When user logins in, it should direct to them "/home"

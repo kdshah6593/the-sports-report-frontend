@@ -56,7 +56,7 @@ export default function Header() {
         setState({...state, [anchor]: open});
     }
 
-    const topList = [(<Link to={`/home/players`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Players</Link>), (<Link to={`/home/teams`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Teams</Link>)]
+    const topList = [(<Link to={`/players`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Players</Link>), (<Link to={`/teams`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Teams</Link>)]
 
     const list = (anchor) => (
         <div

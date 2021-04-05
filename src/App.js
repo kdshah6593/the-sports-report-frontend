@@ -5,6 +5,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/Signup';
 import LandingPage from './components/LandingPage'
+import PlayersContainer from './containers/PlayersContainer'
+import TeamsContainer from './containers/TeamsContainer'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
@@ -25,6 +27,14 @@ class App extends React.Component {
             </Route>
             <Route exact path="/signup">
               <SignUp />
+            </Route>
+            <Route exact path="/players">
+              <Header />
+              <PlayersContainer />
+            </Route>
+            <Route exact path="/teams">
+              <Header />
+              <TeamsContainer />
             </Route>
           </Switch>
         </Router>
