@@ -39,15 +39,13 @@ const TeamResults = (props) => {
         })
     }
 
-    const mapSearchResults = () => {
-        if (props.searchResults === null) {
-            return "No Results, please try again."
-        } else {
-            props.searchResults.map((team, index) => <label key={team.idTeam}><input type="radio" name="team" value={index} onChange={handleOptionChange}/>{team.strTeam} - {team.strLeague}</label>)
-        }
+    let teams; 
+    if (props.searchResults === null) {
+        teams = "No Results, please try again."
+    } else {
+        teams = props.searchResults.map((team, index) => <label key={team.idTeam}><input type="radio" name="team" value={index} onChange={handleOptionChange}/>{team.strTeam} - {team.strLeague}</label>)
     }
 
-    const teams = mapSearchResults()
     return (
         <div>
             <form onSubmit={handleSubmit}>
