@@ -5,6 +5,8 @@ class PlayerResults extends React.Component {
         selectedOption: "",
         searchResults: this.props.searchResults
     }
+
+    
     
     handleOptionChange = (event) => {
         console.log(event.target.value)
@@ -16,8 +18,23 @@ class PlayerResults extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const selectedPlayer = this.state.searchResults[this.state.selectedOption]
-        // this will send a fetch post request to the backend
-        // create the object here with the information needed for backend like name, sport, team to be stringifed
+        const dataToSend = {
+            name: selectedPlayer.strPlayer,
+            sport: selectedPlayer.strSport,
+            team: selectedPlayer.strTeam,
+            sportsDBId: selectedPlayer.idPlayer
+        }
+
+        fetch("http://localhost:3001/api/v1/players", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
     }
     
     render() {
