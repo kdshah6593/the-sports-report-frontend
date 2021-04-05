@@ -17,8 +17,26 @@ const TeamResults = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const selectedTeam = searchResults[selectedOption]
-        // this will send a fetch post request to the backend
-        // create the object here with the information needed for backend like name, sport to be stringifed
+
+        const dataToSend = {
+            name: selectedPlayer.strTeam,
+            sport: selectedPlayer.strSport,
+            sportsDBId: selectedPlayer.idTeam
+        }
+
+        fetch("http://localhost:3001/api/v1/teams", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => response.json())
+        .then(updatedUser => {
+            props.addTeam(updatedUser)
+            history.push("/home/teams")
+        })
     }
 
     const mapSearchResults = () => {
