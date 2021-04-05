@@ -19,9 +19,9 @@ const TeamResults = (props) => {
         const selectedTeam = searchResults[selectedOption]
 
         const dataToSend = {
-            name: selectedPlayer.strTeam,
-            sport: selectedPlayer.strSport,
-            sportsDBId: selectedPlayer.idTeam
+            name: selectedTeam.strTeam,
+            sport: selectedTeam.strSport,
+            sportsDBId: selectedTeam.idTeam
         }
 
         fetch("http://localhost:3001/api/v1/teams", {
