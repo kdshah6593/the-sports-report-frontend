@@ -58,4 +58,10 @@ const TeamResults = (props) => {
     )
 }
 
-export default TeamResults;
+const mapDispatchToProps = dispatch => {
+    return {
+        addTeam: userData => dispatch({ type: 'ADD_TEAM', payload: userData })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(TeamResults);
