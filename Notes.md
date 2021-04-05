@@ -13,4 +13,10 @@
 7. Then establish User Auth on back end using JWT tokens
 8. Change current_user to whoever logs in
 
-9. Format CSS
+9. For master/detail part, will need to use async request "Loading" when fetching the articles
+
+10. Format CSS
+
+11. Check that routing is properly configured
+
+12. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
