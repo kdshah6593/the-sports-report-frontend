@@ -3,10 +3,11 @@ import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 const TeamResults = (props) => {
-    state = {
-        selectedOption: "",
-        searchResults: this.props.searchResults
-    }
+
+    const [selectedOption, setSelectedOption] = useState("");
+    const [searchResults, setSearchResults] = useState(props.searchResults)
+
+    let history = useHistory()
     
     const handleOptionChange = (event) => {
         console.log(event.target.value)
