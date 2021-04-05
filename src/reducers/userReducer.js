@@ -8,7 +8,7 @@ export default function userReducer(state = {
         case 'ADD_PLAYER':
             return {...state, user: action.payload} //this will update the state user to reflect added player
         case 'ADD_TEAM':
-            return state //this will udpate the state user to reflect added team
+            return {...state, user: action.payload} //this will udpate the state user to reflect added team
         case 'CHANGE_VIEW':
             return state //this will establish what player or team is being viewed
         default:
