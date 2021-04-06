@@ -13,7 +13,7 @@ class TeamsContainer extends React.Component {
                 - this is done via Teams Component, which will map over players and create each one as a link
                 - Team Component will be display of articles as cards
                 Then if a link is clicked, the detail (articles) will show up on right hand side via route
-                <Teams />
+                <Teams teams={this.props.teams} />
                 <Switch>
                     <Route path="/teams/:id" component={Team} />
                 </Switch>
@@ -24,7 +24,7 @@ class TeamsContainer extends React.Component {
 
 const mapDispatchToProps = state => {
     return {
-        players: state.user.attributes.teams
+        teams: state.user.attributes.teams
     }
 }
 
