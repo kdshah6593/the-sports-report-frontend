@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Player from '../components/players/Player';
 import Players from '../components/players/Players';
+import { connect } from 'react-redux';
 
 class PlayersContainer extends React.Component {
     render() {
@@ -14,6 +15,7 @@ class PlayersContainer extends React.Component {
                 - Player Component will be display of articles as cards
                 Then if a link is clicked, the detail (articles) will show up on right hand side via route
                 </p>
+                <Players players={this.props.players} />
                 <Switch>
                     <Route path="/players/:id" component={Player} />
                 </Switch>
@@ -21,5 +23,10 @@ class PlayersContainer extends React.Component {
         )
     }
 }
+const mapDispatchToProps = state => {
+    return {
+        players: state.user.attributes.players
+    }
+}
 
-export default PlayersContainer;
+export default connect(mapDispatchToProps)(PlayersContainer);
