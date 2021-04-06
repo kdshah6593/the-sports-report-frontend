@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-// import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom'
+import { Link as RouteLink } from 'react-router-dom'
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" to="https://material-ui.com/">
         Your Website
       </Link>{' '}
       {new Date().getFullYear()}
@@ -47,8 +49,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+function SignIn(props) {
   const classes = useStyles();
+  let history = useHistory()
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleUsername = (event) => {
+    setUsername(event.target.value)
+  }
+
+  const handlePassword = (event) => {
+    setPassword(event.target.value)
+  }
+
+  const loginFetch = (event) => {
+    event.preventDefault()
+    console.log("I'm logging in")
+    const inputData = {user: {
+      username: username,
+      password: password
+    }}
+    fetch("http://localhost:3001/api/v1/login", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(inputData)
+    })
+    .then(response => response.json())
+    .then(json => {
+      localStorage.setItem('jwt_token', json.jwt)
+      const userId = json.user.data.id
+      localStorage.setItem('currentUser', userId)
+      props.addUser(json.user.data)
+      history.push("/home")
+    })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -60,16 +99,18 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Log in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={loginFetch} className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="username"
+            label="Username"
+            name="username"
+            onChange = {handleUsername}
+            value = {username}
+            autoComplete="username"
             autoFocus
           />
           <TextField
@@ -81,6 +122,8 @@ export default function SignIn() {
             label="Password"
             type="password"
             id="password"
+            onChange = {handlePassword}
+            value = {password}
             autoComplete="current-password"
           />
           <FormControlLabel
@@ -103,9 +146,9 @@ export default function SignIn() {
               </Link>
             </Grid> */}
             <Grid item>
-              <Link to={`/signup`} variant="body2">
+              <RouteLink to={`/signup`} variant="body2">
                 {"Don't have an account? Sign Up"}
-              </Link>
+              </RouteLink>
             </Grid>
           </Grid>
         </form>
@@ -116,3 +159,11 @@ export default function SignIn() {
     </Container>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addUser: (user) => dispatch({ type: 'ADD_USER', payload: user })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SignIn)
