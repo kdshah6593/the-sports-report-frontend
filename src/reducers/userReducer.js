@@ -4,7 +4,7 @@ export default function userReducer(state = {
 }, action) {
     switch (action.type) {
         case 'ADD_USER':
-            return state //this will establish the current user on log in
+            return {...state, user: action.payload} //this will establish the current user on log in
         case 'ADD_PLAYER':
             return {...state, user: action.payload} //this will update the state user to reflect added player
         case 'ADD_TEAM':
