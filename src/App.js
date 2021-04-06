@@ -7,7 +7,7 @@ import SignUp from './components/Signup';
 import LandingPage from './components/LandingPage'
 import PlayersContainer from './containers/PlayersContainer'
 import TeamsContainer from './containers/TeamsContainer'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PlayerForm from './components/players/PlayerForm';
 import TeamForm from './components/teams/TeamForm';
 import { connect } from 'react-redux'
