@@ -4,7 +4,7 @@ import Player from './Player';
 
 class Players extends React.Component {
     state = {
-        selectedPlayer: {}
+        selectedPlayer: ""
     }
     
     selectPlayer = (player) => {
@@ -26,7 +26,7 @@ class Players extends React.Component {
                 </div>
                 <div>
                     <h4>Player Details</h4>
-                    {this.state.selectedPlayer ? <Player key={this.state.selectedPlayer.sportsDBId} player={this.state.selectedPlayer} /> : "No Player Selected Yet" }
+                    {this.state.selectedPlayer ? <Player key={this.state.selectedPlayer.sportsDBId} player={this.state.selectedPlayer} /> : <p>No Player Selected</p> }
                 </div>
 
             </div>

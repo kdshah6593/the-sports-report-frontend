@@ -3,7 +3,7 @@ import Team from './Team';
 
 class Teams extends React.Component {
     state = {
-        selectedTeam: {}
+        selectedTeam: ""
     }
 
     selectTeam = (team) => {
@@ -26,7 +26,7 @@ class Teams extends React.Component {
                 </div>
                 <div>
                     <h4>Team Details</h4>
-                    {this.state.selectedTeam ? <Team key={this.state.selectedTeam.sportsDBId} team={this.state.selectedTeam} /> : "No Team Selected Yet" }
+                    {this.state.selectedTeam ? <Team key={this.state.selectedTeam.sportsDBId} team={this.state.selectedTeam} /> : <p>No Team Selected</p> }
                 </div>
             </div>
         )
