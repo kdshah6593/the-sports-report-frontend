@@ -34,8 +34,8 @@ const TeamResults = (props) => {
         })
         .then(response => response.json())
         .then(updatedUser => {
-            props.addTeam(updatedUser)
-            history.push("/home/teams")
+            props.addTeam(updatedUser.data)
+            history.push("/teams")
         })
     }
 

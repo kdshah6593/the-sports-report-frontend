@@ -34,8 +34,8 @@ const PlayerResults = (props) => {
         })
         .then(response => response.json())
         .then(updatedUser => {
-            props.addPlayer(updatedUser)
-            history.push("/home/players")
+            props.addPlayer(updatedUser.data)
+            history.push("/players")
         })
     }
     
