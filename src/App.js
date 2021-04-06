@@ -8,6 +8,8 @@ import LandingPage from './components/LandingPage'
 import PlayersContainer from './containers/PlayersContainer'
 import TeamsContainer from './containers/TeamsContainer'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import PlayerForm from './components/players/PlayerForm';
+import TeamForm from './components/teams/TeamForm';
 
 class App extends React.Component {
   render() {
@@ -35,6 +37,14 @@ class App extends React.Component {
             <Route exact path="/teams">
               <Header />
               <TeamsContainer />
+            </Route>
+            <Route exact path="/add-player">
+              <Header />
+              <PlayerForm />
+            </Route>
+            <Route exact path="/add-team">
+              <Header />
+              <TeamForm />
             </Route>
           </Switch>
         </Router>
