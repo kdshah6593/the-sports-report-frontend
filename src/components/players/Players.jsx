@@ -1,5 +1,7 @@
 import React from 'react';
 import Player from './Player';
+import { connect } from 'react-redux';
+import { fetchArticles } from '../../actions/fetchArticles';
 
 
 class Players extends React.Component {
@@ -12,6 +14,7 @@ class Players extends React.Component {
         this.setState({ 
             selectedPlayer: player
         })
+        this.props.fetchArticles(player)
     }
 
     render() {
@@ -34,6 +37,12 @@ class Players extends React.Component {
     }
 }
 
-export default Players;
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchArticles: (player) => dispatch(fetchArticles(player))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Players);
 
 // this component will render a mapped list of user player
