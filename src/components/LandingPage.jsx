@@ -1,6 +1,4 @@
 import React from 'react';
-import PlayerForm from './players/PlayerForm';
-import TeamForm from './teams/TeamForm'
 import { Link } from 'react-router-dom'
 
 class LandingPage extends React.Component {
