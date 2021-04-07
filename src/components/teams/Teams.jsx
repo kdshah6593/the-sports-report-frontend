@@ -33,7 +33,7 @@ const Teams = (props) => {
     return (
         <div className={classes.root}>
             <Grid container spacing={1}>
-                <Grid item xs={3}>
+                <Grid item xs={2}>
                     <Paper className={classes.paper}>
                         <h3>Team List</h3>
                         <ul>
@@ -41,7 +41,7 @@ const Teams = (props) => {
                         </ul>
                     </Paper>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={10}>
                     <Paper className={classes.paper}>
                         <h3>Team Details</h3>
                         {selectedTeam ? <Team key={selectedTeam.sportsDBId} team={selectedTeam} /> : <p>No Team Selected</p> }

@@ -49,7 +49,7 @@ const Player = (props) => {
     
     return (
         <Container className={classes.cardGrid} maxWidth="md">
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
                 {props.requesting ? "Loading" : articles}
             </Grid>
         </Container>
