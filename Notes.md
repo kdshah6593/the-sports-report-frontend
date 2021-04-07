@@ -12,9 +12,6 @@
 - will need to use async request "Loading" when fetching the articles
 - articles will hyperlink to new tabs
 
-4. Logout
-- button should cause a page reload, which logs user out and brings to home page
-
 6. Format CSS
 - background for landing page
 - card style for articles
