@@ -16,7 +16,8 @@ import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import PeopleIcon from '@material-ui/icons/People';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,7 +40,7 @@ const menuStyles = makeStyles({
     },
   });
 
-export default function Header() {
+function Header(props) {
     const classes = useStyles();
     const menuClasses = menuStyles();
     const [state, setState] = React.useState({
@@ -52,6 +53,14 @@ export default function Header() {
         }
 
         setState({...state, [anchor]: open});
+    }
+
+    const handleClick = (event) => {
+        if (event.target.innerText === "Logout") {
+            props.logout();
+        } else {
+            //code useHistory to push to profile page
+        }
     }
 
     const topList = [(<Link to={`/players`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Players</Link>), (<Link to={`/teams`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Teams</Link>)]
@@ -75,8 +84,8 @@ export default function Header() {
             </List>
             <Divider />
             <List>
-                {['Profile', 'Logout'].map((text, index) => (
-                    <ListItem button key={index}>
+                {["Profile", "Logout"].map((text, index) => (
+                    <ListItem onClick={handleClick} button key={index}>
                         <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon /> : <ExitToAppIcon />}</ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
@@ -105,3 +114,11 @@ export default function Header() {
         </div>
     );
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: () => dispatch({ type: 'LOGOUT' })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Header);
