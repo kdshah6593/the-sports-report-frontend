@@ -1,5 +1,8 @@
 import React from 'react';
 import PlayerResults from './PlayerResults'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField';
+import '../../Form.css';
 
 class PlayerForm extends React.Component {
     state = {
@@ -37,14 +40,17 @@ class PlayerForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSearchSubmit}>
-                    <label htmlFor="searchPlayer">Search for the Player: </label>
-                    <input type="text" name="searchPlayer" onChange={this.handleSearchChange} value={this.state.searchPlayer} />
+            <Paper className="form">
+                <form className="center" onSubmit={this.handleSearchSubmit}>
+                    <label className="heading" htmlFor="searchPlayer">Player Search</label>
+                    <br></br>
+                    <TextField type="text" name="searchPlayer" onChange={this.handleSearchChange} value={this.state.searchPlayer} variant="outlined" size="small"/>
+                    <br></br><br></br>
                     <input type="submit" value="Search" />
                 </form>
-                {this.state.searched === true ? <PlayerResults searchResults={this.state.searchResults}/> : "No Search Performed"}
-            </div>
+                <br></br>
+                {this.state.searched === true ? <PlayerResults searchResults={this.state.searchResults}/> : <p className="center">No Search Performed</p>}
+            </Paper>
         )
     }
 }
