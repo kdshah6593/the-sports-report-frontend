@@ -1,38 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Player from './Player';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/fetchArticles';
 
-class Players extends React.Component {
-    state = {
-        selectedPlayer: ""
-    }
+const Players = (props) => {
+    const [selectedPlayer, useSelectedPlayer] = useState("")
     
-    selectPlayer = (player) => {
-        console.log("ive been clicked");
-        this.setState({ 
-            selectedPlayer: player
-        })
+    const selectPlayer = (player) => {
+        useSelectedPlayer(player)
         this.props.fetchArticles(player)
     }
 
-    render() {
-        const players = this.props.players.map( (player, index) => <li key={index} onClick={() => this.selectPlayer(player)}>{player.name}</li>);
-        return (
+    const players = props.players.map( (player, index) => <li key={index} onClick={() => selectPlayer(player)}>{player.name}</li>);
+    return (
+        <div>
             <div>
-                <div>
-                    <h4>Player List</h4>
-                    <ul>
-                        {players}
-                    </ul>
-                </div>
-                <div>
-                    <h4>Player Details</h4>
-                    {this.state.selectedPlayer ? <Player key={this.state.selectedPlayer.sportsDBId} player={this.state.selectedPlayer} /> : <p>No Player Selected</p> }
-                </div>
+                <h4>Player List</h4>
+                <ul>
+                    {players}
+                </ul>
             </div>
-        )
-    }
+            <div>
+                <h4>Player Details</h4>
+                {selectedPlayer ? <Player key={selectedPlayer.sportsDBId} player={selectedPlayer} /> : <p>No Player Selected</p> }
+            </div>
+        </div>
+    )
 }
 
 const mapDispatchToProps = dispatch => {
