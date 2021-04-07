@@ -1,26 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import Card from '../Card'
 
-class Player extends React.Component {
-    state = {
-        name: this.props.player.name,
-    }
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 
-    render() {
-        const articles = this.props.articles.map(article =>
-            <div key={article.id}>
-                <img src={article.image} alt="" />
-                <p>{article.title}</p>
-            </div>
-            )
-        
-        return (
-            <div>
-                <p>{this.state.name}</p>
-                {this.props.requesting ? "Loading" : articles}
-            </div>
-        )
-    }
+const useStyles = makeStyles((theme) => ({
+    icon: {
+      marginRight: theme.spacing(2),
+    },
+    heroContent: {
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(8, 0, 6),
+    },
+    heroButtons: {
+      marginTop: theme.spacing(4),
+    },
+    cardGrid: {
+      paddingTop: theme.spacing(8),
+      paddingBottom: theme.spacing(8),
+    },
+    card: {
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    cardMedia: {
+      paddingTop: '56.25%', // 16:9
+    },
+    cardContent: {
+      flexGrow: 1,
+    },
+    footer: {
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(6),
+    },
+  }));
+
+const Player = (props) => {
+    const classes = useStyles();
+
+    const articles = props.articles.map(article => (
+        <Grid item key={article.id} xs={12} sm={6} md={4}>
+            <Card title={article.title} image={article.image} description={article.description} url={article.url} />
+        </Grid>))
+    
+    return (
+        <Container className={classes.cardGrid} maxWidth="md">
+            <Grid container spacing={4}>
+                {props.requesting ? "Loading" : articles}
+            </Grid>
+        </Container>
+    )
 }
 
 const mapStateToProps = state => {
@@ -31,6 +63,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Player);
-
-
-// this component should display the articles for the player that is passed through props and use async fetch request
