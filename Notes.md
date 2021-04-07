@@ -3,14 +3,14 @@
 - Refactor the onChange Handle Events for username, password, email, first name, last name
 
 2. Player articles
-- when player clicked on it, it generates their articles
-- will need to use async request "Loading" when fetching the articles
-- articles will hyperlink to new tabs
+- articles will hyperlink to new tabs / CSS
 
 3. Team Articles
-- when team clicked on it, it generates their articles
-- will need to use async request "Loading" when fetching the articles
-- articles will hyperlink to new tabs
+- articles will hyperlink to new tabs / CSS
+
+4. Remove a Player or Team from your list
+- delete fetch request to be sent
+
 
 6. Format CSS
 - background for landing page
