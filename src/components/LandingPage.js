@@ -8,10 +8,12 @@ class LandingPage extends React.Component {
         return (
             <div>
                 <p>This is the landing page.</p>
-                <Link to={`/login`}>Login</Link>
-                <Link to={`/signup`}>Signup</Link>
-                <PlayerForm />
-                <TeamForm />
+                <div>
+                    <Link to={`/login`}>Login</Link>
+                </div>
+                <div>
+                    <Link to={`/signup`}>Signup</Link>
+                </div>
             </div>
         )
     }
