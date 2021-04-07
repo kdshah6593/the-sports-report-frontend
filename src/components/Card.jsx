@@ -40,7 +40,7 @@ export default function MediaCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          <Link color="inherit" href={props.url}>Read the Full Article</Link>
+          <Link color="inherit" href={props.url} target="_blank" rel="noopener noreferrer">Read the Full Article</Link>
         </Button>
       </CardActions>
     </Card>

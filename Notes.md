@@ -2,12 +2,6 @@
 1. User Sign Up
 - Refactor the onChange Handle Events for username, password, email, first name, last name
 
-2. Player articles
-- articles will hyperlink to new tabs / CSS
-
-3. Team Articles
-- articles will hyperlink to new tabs / CSS
-
 4. Remove a Player or Team from your list
 - delete fetch request to be sent
 
@@ -24,3 +18,5 @@
 - Header comp needs to update the HandleClick Function
 - Create a Profile Component
 - Create a Route in App.js for it that uses login authetincation function
+
+11. Change Loading to an Animation of Loading
