@@ -25,3 +25,7 @@
 
 9. All fetch requests should have jwt token added to them
 
+10. Add a Profile Page Component
+- Header comp needs to update the HandleClick Function
+- Create a Profile Component
+- Create a Route in App.js for it that uses login authetincation function
