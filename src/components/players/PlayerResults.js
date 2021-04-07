@@ -28,7 +28,8 @@ const PlayerResults = (props) => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             },
             body: JSON.stringify(dataToSend)
         })
