@@ -26,7 +26,7 @@ const Teams = (props) => {
 
     const SelectTeam = (team) => {
         useSelectedTeam(team)
-        this.props.fetchArticles(team)
+        props.fetchArticles(team)
     }
     
     const teams = props.teams.map( (team, index) => <li key={index} onClick={() => SelectTeam(team)}>{team.name}</li>);
