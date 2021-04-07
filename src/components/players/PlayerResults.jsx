@@ -7,7 +7,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 const PlayerResults = (props) => {
 
@@ -51,13 +50,12 @@ const PlayerResults = (props) => {
     return (
         <div className="center">
             <FormControl component='fieldset'>
-            <form onSubmit={handleSubmit}>
-                <RadioGroup onChange={handleOptionChange}>
-                    {players}
-                </RadioGroup>
-                <input type="submit" value="Add Player" />
-            </form>
-
+                <form onSubmit={handleSubmit}>
+                    <RadioGroup onChange={handleOptionChange}>
+                        {players}
+                    </RadioGroup>
+                    <input type="submit" value="Add Player" />
+                </form>
             </FormControl>
         </div>
     )

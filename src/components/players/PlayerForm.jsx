@@ -29,13 +29,11 @@ class PlayerForm extends React.Component {
         fetch(url+`${player}`)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data.player)
             this.setState({
                 searchResults: data.player,
                 searched: true
             })
         })
-
     }
 
     render() {
