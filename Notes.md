@@ -20,8 +20,6 @@
 
 8. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
 
-9. All fetch requests should have jwt token added to them
-
 10. Add a Profile Page Component
 - Header comp needs to update the HandleClick Function
 - Create a Profile Component
