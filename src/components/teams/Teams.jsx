@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Team from './Team';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/fetchArticles'
+import { Link } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -36,6 +37,7 @@ const Teams = (props) => {
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
                         <h3>Team List</h3>
+                        <Link to={"/add-team"}>Add Team</Link>
                         <ul>
                             {teams}
                         </ul>
