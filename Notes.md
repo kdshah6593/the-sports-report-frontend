@@ -5,12 +5,10 @@
 4. Remove a Player or Team from your list
 - delete fetch request to be sent
 
-
 6. Format CSS
 - background for landing page
 - card style for articles
-
-7. Check that routing is properly configured
+- background colors for pages
 
 8. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
 
@@ -19,4 +17,5 @@
 - Create a Profile Component
 - Create a Route in App.js for it that uses login authetincation function
 
-11. Change Loading to an Animation of Loading
+11. Change Loading to an Animation of Loading use Material UI Feedback section
+12. Change how the List of Players or Teams look using Material UI List section
