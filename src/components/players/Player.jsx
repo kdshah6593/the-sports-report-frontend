@@ -44,7 +44,8 @@ const Player = (props) => {
     const articles = props.articles.map(article => (
         <Grid item key={article.id} xs={12} sm={6} md={4}>
             <Card title={article.title} image={article.image} description={article.description} url={article.url} />
-        </Grid>))
+        </Grid>
+    ))
     
     return (
         <Container className={classes.cardGrid} maxWidth="md">
