@@ -31,7 +31,7 @@ const Players = (props) => {
     const players = props.players.map( (player, index) => <li key={index} onClick={() => SelectPlayer(player)}>{player.name}</li>);
     
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={{ padding: 10 }}>
             <Grid container spacing={1}>
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>

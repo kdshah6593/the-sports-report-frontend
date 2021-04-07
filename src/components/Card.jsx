@@ -12,9 +12,12 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    display: 'flex',
+    flexDirection: 'column',
   },
   media: {
     height: 140,
+    paddingTop: '56.25%', // 16:9
   },
 });
 
@@ -29,7 +32,7 @@ export default function MediaCard(props) {
           image={props.image}
           title=""
         />
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
           </Typography>

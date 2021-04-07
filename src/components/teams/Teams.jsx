@@ -31,7 +31,7 @@ const Teams = (props) => {
     const teams = props.teams.map( (team, index) => <li key={index} onClick={() => SelectTeam(team)}>{team.name}</li>);
     
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={{ padding: 10 }}>
             <Grid container spacing={1}>
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
