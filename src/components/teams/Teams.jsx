@@ -1,5 +1,7 @@
 import React from 'react';
 import Team from './Team';
+import { connect } from 'react-redux';
+import { fetchArticles } from '../../actions/fetchArticles'
 
 class Teams extends React.Component {
     state = {
@@ -11,10 +13,10 @@ class Teams extends React.Component {
         this.setState({
             selectedTeam: team
         })
+        this.props.fetchArticles(team)
     }
     
     render() {
-        console.log(this.props.teams)
         const teams = this.props.teams.map( (team, index) => <li key={index} onClick={() => this.selectTeam(team)}>{team.name}</li>);
         return (
             <div>
@@ -33,4 +35,10 @@ class Teams extends React.Component {
     }
 }
 
-export default Teams;
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchArticles: (team) => dispatch(fetchArticles(team))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Teams);
