@@ -1,7 +1,7 @@
-export function fetchArticles(player) {
+export function fetchArticles(search) {
     const url = 'https://api.currentsapi.services/v1/search?language=en&category=sports'
     const apikey = `&apiKey=${process.env.REACT_APP_CURRENTS_API_KEY}`
-    const playerName = `&keywords=${player.name.replace(" ", "%20")}`
+    const playerName = `&keywords=${search.name.replace(" ", "%20")}`
     return (dispatch) => {
         dispatch({ type: 'START_ADDING_ARTICLES_REQUEST' });
         fetch(url+playerName+apikey)
