@@ -8,7 +8,6 @@
 6. Format CSS
 - background for landing page
 - card style for articles
-- background colors for pages
 
 8. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
 
@@ -18,3 +17,11 @@
 - Create a Route in App.js for it that uses login authetincation function
 
 11. Change Loading to an Animation of Loading use Material UI Feedback section
+
+12. Clean Up Code
+
+13. Landing Page
+- Title (center, font style)
+- Center Links and change their button color
+- Get an Image
+- Change Font Style
