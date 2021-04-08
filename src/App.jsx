@@ -13,83 +13,81 @@ import TeamForm from './components/teams/TeamForm';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-class App extends React.Component {
-  loggedIn = () => {
-    if (this.props.loggedIn === false) {
+const App = (props) => {
+  const loggedIn = () => {
+    if (props.loggedIn === false) {
       return true
     }
   }
   
-  render() {
-    return (
-      <div className="App page-container">
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <LandingPage />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <SignUp />
-            </Route>
-            <Route exact path="/home" render={() => (
-              this.loggedIn() ? (
-                <Redirect to="/"/>
-              ) : (
-                <>
-                  <Header />
-                  <Home />
-                </>
-              )
-            )}/>
-            <Route exact path="/players" render={() => (
-              this.loggedIn() ? (
-                <Redirect to="/"/>
-              ) : (
-                <>
-                  <Header />
-                  <PlayersContainer />
-                </>
-              )
-            )}/>
-            <Route exact path="/teams" render={() => (
-              this.loggedIn() ? (
-                <Redirect to="/"/>
-              ) : (
-                <>
-                  <Header />
-                  <TeamsContainer />
-                </>
-              )
-            )}/>
-            <Route exact path="/add-player" render={() => (
-              this.loggedIn() ? (
-                <Redirect to="/"/>
-              ) : (
-                <>
-                  <Header />
-                  <PlayerForm />
-                </>
-              )
-            )}/>
-            <Route exact path="/add-team" render={() => (
-              this.loggedIn() ? (
-                <Redirect to="/"/>
-              ) : (
-                <>
-                  <Header />
-                  <TeamForm />
-                </>
-              )
-            )}/>
-          </Switch>
-        </Router>
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/home" render={() => (
+            loggedIn() ? (
+              <Redirect to="/"/>
+            ) : (
+              <>
+                <Header />
+                <Home />
+              </>
+            )
+          )}/>
+          <Route exact path="/players" render={() => (
+            loggedIn() ? (
+              <Redirect to="/"/>
+            ) : (
+              <>
+                <Header />
+                <PlayersContainer />
+              </>
+            )
+          )}/>
+          <Route exact path="/teams" render={() => (
+            loggedIn() ? (
+              <Redirect to="/"/>
+            ) : (
+              <>
+                <Header />
+                <TeamsContainer />
+              </>
+            )
+          )}/>
+          <Route exact path="/add-player" render={() => (
+            loggedIn() ? (
+              <Redirect to="/"/>
+            ) : (
+              <>
+                <Header />
+                <PlayerForm />
+              </>
+            )
+          )}/>
+          <Route exact path="/add-team" render={() => (
+            loggedIn() ? (
+              <Redirect to="/"/>
+            ) : (
+              <>
+                <Header />
+                <TeamForm />
+              </>
+            )
+          )}/>
+        </Switch>
+      </Router>
+      <Footer />
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
