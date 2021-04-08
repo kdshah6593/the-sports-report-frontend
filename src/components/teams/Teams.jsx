@@ -4,7 +4,7 @@ import TeamList from './TeamList';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/fetchArticles'
 import { Link } from 'react-router-dom'
-
+import '../../Styles.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -36,15 +36,15 @@ const Teams = (props) => {
             <Grid container spacing={1}>
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
-                        <h2>Your Favorite Teams</h2>
-                        <Button variant="contained" color="primary"><Link to={"/add-team"} style={{ color: 'inherit', textDecoration: 'inherit'}}>Add Team</Link></Button>
+                        <h2 className="textColor">Your Favorite Teams</h2>
+                        <Button variant="contained" style={{ background: '#E09F3E', color: 'white'}}><Link to={"/add-team"} style={{ color: 'inherit', textDecoration: 'inherit'}}>Add Team</Link></Button>
                         <TeamList teams={props.teams} SelectTeam={SelectTeam} />
                     </Paper>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <h2>{selectedTeam.name} News Articles</h2>
-                        {selectedTeam ? <Team key={selectedTeam.sportsDBId} team={selectedTeam} /> : <h3>No Team Selected</h3> }
+                        <h2 className="textColor">{selectedTeam.name} News Articles</h2>
+                        {selectedTeam ? <Team key={selectedTeam.sportsDBId} team={selectedTeam} /> : <h3 className="subText">No Team Selected</h3> }
                     </Paper>
                 </Grid>
             </Grid>
