@@ -18,4 +18,3 @@
 - Create a Route in App.js for it that uses login authetincation function
 
 11. Change Loading to an Animation of Loading use Material UI Feedback section
-12. Change how the List of Players or Teams look using Material UI List section

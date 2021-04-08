@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,7 +37,7 @@ const Players = (props) => {
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
                         <h3>Player List</h3>
-                        <Link to={"/add-player"}>Add Player</Link>
+                        <Button variant="contained" color="primary"><Link to={"/add-player"} style={{ color: 'inherit', textDecoration: 'inherit'}}>Add Player</Link></Button>
                         <PlayerList players={props.players} SelectPlayer={SelectPlayer} />
                     </Paper>
                 </Grid>
