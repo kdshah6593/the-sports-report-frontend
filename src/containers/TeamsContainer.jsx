@@ -2,14 +2,12 @@ import React from 'react';
 import Teams from '../components/teams/Teams';
 import { connect } from 'react-redux';
 
-class TeamsContainer extends React.Component {
-    render() {
-        return (
-            <div>
-                <Teams teams={this.props.teams} />
-            </div>
-        )
-    }
+const TeamsContainer = (props) => {
+    return (
+        <div>
+            <Teams teams={props.teams} />
+        </div>
+    )
 }
 
 const mapDispatchToProps = state => {
