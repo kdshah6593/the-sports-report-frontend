@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
     footer: {
         padding: theme.spacing(3, 2),
         marginTop: 'auto',
-        backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+        backgroundColor: '#E09F3E',
         position: 'fixed',
         bottom: 0,
         width: '100%',
         height: '4.5rem',
     },
     phantom: {
-        height: '10vh'
+        height: '10vh',
     }
 }))
 
