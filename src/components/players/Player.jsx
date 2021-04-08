@@ -5,6 +5,7 @@ import Card from '../Card'
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     cardContent: {
       flexGrow: 1,
     },
+    loading: {
+        display: 'flex',
+        justifyContent: 'center',
+      },
   }));
 
 const Player = (props) => {
@@ -30,8 +35,8 @@ const Player = (props) => {
     
     return (
         <Container className={classes.cardGrid} maxWidth="md">
-            <Grid container spacing={3}>
-                {props.requesting ? "Loading" : articles}
+            <Grid container spacing={3} className={classes.loading}>
+                {props.requesting ? <div><h3>Loading...</h3><CircularProgress style={{ color: '#E09F3E'}}/></div> : articles}
             </Grid>
         </Container>
     )
