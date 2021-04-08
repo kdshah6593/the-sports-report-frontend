@@ -36,15 +36,15 @@ const Teams = (props) => {
             <Grid container spacing={1}>
                 <Grid item xs={2}>
                     <Paper className={classes.paper}>
-                        <h3>Team List</h3>
+                        <h2>Your Favorite Teams</h2>
                         <Button variant="contained" color="primary"><Link to={"/add-team"} style={{ color: 'inherit', textDecoration: 'inherit'}}>Add Team</Link></Button>
                         <TeamList teams={props.teams} SelectTeam={SelectTeam} />
                     </Paper>
                 </Grid>
                 <Grid item xs={10}>
                     <Paper className={classes.paper}>
-                        <h3>Team Details</h3>
-                        {selectedTeam ? <Team key={selectedTeam.sportsDBId} team={selectedTeam} /> : <p>No Team Selected</p> }
+                        <h2>{selectedTeam.name} News Articles</h2>
+                        {selectedTeam ? <Team key={selectedTeam.sportsDBId} team={selectedTeam} /> : <h3>No Team Selected</h3> }
                     </Paper>
                 </Grid>
             </Grid>
