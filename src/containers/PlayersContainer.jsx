@@ -1,5 +1,4 @@
 import React from 'react';
-import Player from '../components/players/Player';
 import Players from '../components/players/Players';
 import { connect } from 'react-redux';
 

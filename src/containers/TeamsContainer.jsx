@@ -1,5 +1,4 @@
 import React from 'react';
-import Team from '../components/teams/Team';
 import Teams from '../components/teams/Teams';
 import { connect } from 'react-redux';
 
