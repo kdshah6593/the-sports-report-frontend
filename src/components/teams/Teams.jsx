@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Team from './Team';
+import TeamList from './TeamList';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/fetchArticles'
 import { Link } from 'react-router-dom'
@@ -29,8 +30,6 @@ const Teams = (props) => {
         props.fetchArticles(team)
     }
     
-    const teams = props.teams.map( (team, index) => <li key={index} onClick={() => SelectTeam(team)}>{team.name}</li>);
-    
     return (
         <div className={classes.root} style={{ padding: 10 }}>
             <Grid container spacing={1}>
@@ -38,9 +37,7 @@ const Teams = (props) => {
                     <Paper className={classes.paper}>
                         <h3>Team List</h3>
                         <Link to={"/add-team"}>Add Team</Link>
-                        <ul>
-                            {teams}
-                        </ul>
+                        <TeamList teams={props.teams} SelectTeam={SelectTeam} />
                     </Paper>
                 </Grid>
                 <Grid item xs={10}>
