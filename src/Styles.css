@@ -38,3 +38,9 @@
     font-size: 24px;
 
 }
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: 'center';
+}
