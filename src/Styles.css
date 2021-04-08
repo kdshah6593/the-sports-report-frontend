@@ -13,3 +13,28 @@
     font-size: 1.5em;
     font-weight: 700;
 }
+
+.textColor {
+    color: #E09F3E;
+}
+
+
+.imgSize {
+    max-width: 720px;
+    max-height: 1280px;
+}
+
+.landingContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.landingTitle {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 64px;
+}
+
+.landingText {
+    font-size: 24px;
+
+}
