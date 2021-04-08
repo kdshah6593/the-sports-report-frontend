@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { Link as RouteLink } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
+import '../Styles.css';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,13 +14,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link as RouteLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
-import { connect } from 'react-redux';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" style={{ color: '#E09F3E' }} align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
@@ -33,10 +34,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: theme.spacing(2),
+    backgroundColor: "white",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#E09F3E',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -108,7 +111,7 @@ function SignUp(props) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color: '#E09F3E'}}>
           Sign up
         </Typography>
         <form onSubmit={signupFetch} className={classes.form} noValidate>
@@ -185,7 +188,7 @@ function SignUp(props) {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            style={{ background: '#E09F3E', color: 'white'}}
             className={classes.submit}
           >
             Sign Up
