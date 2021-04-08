@@ -36,7 +36,7 @@ const Team = (props) => {
     return (
         <Container className={classes.cardGrid} maxWidth="md">
             <Grid container spacing={3} className={classes.loading}>
-                {props.requesting ? <div><h3>Loading...</h3><CircularProgress style={{ color: '#E09F3E'}}/></div> : articles}
+                {props.requesting ? <div><h3 className="subText">Loading...</h3><CircularProgress style={{ color: '#E09F3E'}}/></div> : articles}
             </Grid>
         </Container>
     )
