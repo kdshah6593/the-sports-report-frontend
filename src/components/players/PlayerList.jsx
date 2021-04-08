@@ -22,7 +22,7 @@ export default function PlayerList(props) {
 
   const players = props.players.map((player, index) => (
       <ListItem button selected={selectedIndex === index} onClick={(event) => handleListItemClick(event, index, player)} key={index}>
-          <ListItemText primary={player.name} />
+          <ListItemText primary={player.name} className="subText" />
           <IconButton edge="end">
               <DeleteIcon />
           </IconButton>
