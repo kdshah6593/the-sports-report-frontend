@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
+    headerColor: {
+        background: "#E09F3E",
+        color: "#335C67" ,
+    }
 }));
 
 const menuStyles = makeStyles({
@@ -96,7 +100,7 @@ function Header(props) {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar className={classes.headerColor} position="static">
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
                         The Sports Report
