@@ -29,8 +29,6 @@ const Players = (props) => {
         useSelectedPlayer(player)
         props.fetchArticles(player)
     }
-
-    const players = props.players.map( (player, index) => <li key={index} onClick={() => SelectPlayer(player)}>{player.name}</li>);
     
     return (
         <div className={classes.root} style={{ padding: 10 }}>
