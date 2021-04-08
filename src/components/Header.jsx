@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,8 +18,6 @@ import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import PeopleIcon from '@material-ui/icons/People';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
+        fontFamily: 'Racing Sans One',
+        fontSize: "28px"
     },
     headerColor: {
         background: "#E09F3E",
