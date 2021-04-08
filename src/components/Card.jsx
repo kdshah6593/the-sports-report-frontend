@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import noImage from '../images/no-image-placeholder.png';
 
 const useStyles = makeStyles({
   root: {
@@ -29,7 +30,7 @@ export default function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.image}
+          image={props.image !== "None" ? props.image : noImage}
           title=""
         />
         <CardContent className={classes.cardContent}>
