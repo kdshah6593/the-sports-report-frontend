@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link as RouteLink } from 'react-router-dom'
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -12,9 +13,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link as RouteLink } from 'react-router-dom'
-import { useHistory } from 'react-router';
-import { connect } from 'react-redux';
 
 function Copyright() {
   return (
@@ -35,10 +33,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: theme.spacing(2),
+    backgroundColor: "white",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#E09F3E',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -96,7 +96,7 @@ function SignIn(props) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color: '#E09F3E'}}>
           Log in
         </Typography>
         <form onSubmit={loginFetch} className={classes.form} noValidate>
@@ -126,25 +126,16 @@ function SignIn(props) {
             value = {password}
             autoComplete="current-password"
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            style={{ background: '#E09F3E', color: 'white'}}
             className={classes.submit}
           >
             Sign In
           </Button>
           <Grid container justify="flex-end">
-            {/* <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid> */}
             <Grid item>
               <RouteLink to={`/signup`} variant="body2">
                 {"Don't have an account? Sign Up"}
