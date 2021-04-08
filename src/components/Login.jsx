@@ -16,13 +16,12 @@ import Container from '@material-ui/core/Container';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" style={{ color: '#E09F3E' }} align="center">
       {'Copyright © '}
-      <Link color="inherit" to="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" to="https://github.com/kdshah6593">
+        Kunal Shah
       </Link>{' '}
       {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
@@ -90,64 +89,67 @@ function SignIn(props) {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5" style={{color: '#E09F3E'}}>
-          Log in
-        </Typography>
-        <form onSubmit={loginFetch} className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Username"
-            name="username"
-            onChange = {handleUsername}
-            value = {username}
-            autoComplete="username"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            onChange = {handlePassword}
-            value = {password}
-            autoComplete="current-password"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            style={{ background: '#E09F3E', color: 'white'}}
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <RouteLink to={`/signup`} variant="body2">
-                {"Don't have an account? Sign Up"}
-              </RouteLink>
+    <>
+      <h1 className="center textColor landingTitle">The Sports Report</h1>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5" style={{color: '#E09F3E'}}>
+            Log in
+          </Typography>
+          <form onSubmit={loginFetch} className={classes.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              onChange = {handleUsername}
+              value = {username}
+              autoComplete="username"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              onChange = {handlePassword}
+              value = {password}
+              autoComplete="current-password"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              style={{ background: '#E09F3E', color: 'white'}}
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <RouteLink to={`/signup`} variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </RouteLink>
+              </Grid>
             </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+          </form>
+        </div>
+        <Box mt={8}>
+          <Copyright />
+        </Box>
+      </Container>
+    </>
   );
 }
 
