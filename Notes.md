@@ -16,8 +16,6 @@
 - Create a Profile Component
 - Create a Route in App.js for it that uses login authetincation function
 
-11. Change Loading to an Animation of Loading use Material UI Feedback section
-
 12. Clean Up Code
 
 13. Landing Page
@@ -25,3 +23,6 @@
 - Center Links and change their button color
 - Get an Image
 - Change Font Style
+
+14. Convert all components into functional components
+- combine useStates into one with what Juan showed
