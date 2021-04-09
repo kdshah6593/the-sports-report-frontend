@@ -5,24 +5,22 @@
 4. Remove a Player or Team from your list
 - delete fetch request to be sent
 
-6. Format CSS
-- background for landing page
-- card style for articles
-
 8. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
-
-10. Add a Profile Page Component
-- Header comp needs to update the HandleClick Function
-- Create a Profile Component
-- Create a Route in App.js for it that uses login authetincation function
 
 12. Clean Up Code
 
-13. Landing Page
-- Title (center, font style)
-- Center Links and change their button color
-- Get an Image
-- Change Font Style
-
 14. Convert all components into functional components
-- combine useStates into one with what Juan showed
+- combine useStates into one with what Juan showed 
+
+16. Home Page
+- convert player and team button into plain text
+- make the whole image/object listen (event) for click, which will history.push to the new route
+
+17. Error handleOptionChange
+
+# Stretch Goals
+1. Finishing Adding a Profile Page Component
+- Header comp needs to update the HandleClick Function
+- Create a Profile Component
+- Create a Route in App.js for it that uses login authetincation function
+- User can delete account from this page
