@@ -46,37 +46,27 @@ const SignUp = (props) => {
   const classes = useStyles();
   let history = useHistory();
 
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [email, setEmail] = useState("")
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
+  const [values, setValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
+    password: "",
+  })
 
-  const handleUsername = (event) => {
-    setUsername(event.target.value)
-  }
-  const handlePassword = (event) => {
-    setPassword(event.target.value)
-  }
-  const handleFirstName = (event) => {
-    setFirstName(event.target.value)
-  }
-  const handleLastName = (event) => {
-    setLastName(event.target.value)
-  }
-  const handleEmail = (event) => {
-    setEmail(event.target.value)
+  const handleChange = (event) => {
+    setValues({...values, [event.target.name]: event.target.value})
   }
 
   const signupFetch = (event) => {
     event.preventDefault()
     console.log("I'm signing up")
     const inputData = {user: {
-      username: username,
-      password: password,
-      email: email,
-      first_name: firstName,
-      last_name: lastName
+      username: values.username,
+      password: values.password,
+      email: values.email,
+      first_name: values.firstName,
+      last_name: values.lastName
     }}
     fetch("http://localhost:3001/api/v1/users", {
       method: 'POST',
@@ -119,8 +109,8 @@ const SignUp = (props) => {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  onChange = {handleFirstName}
-                  value = {firstName}
+                  onChange = {handleChange}
+                  value = {values.firstName}
                   autoFocus
                 />
               </Grid>
@@ -132,8 +122,8 @@ const SignUp = (props) => {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  onChange = {handleLastName}
-                  value = {lastName}
+                  onChange = {handleChange}
+                  value = {values.lastName}
                   autoComplete="lname"
                 />
               </Grid>
@@ -145,8 +135,8 @@ const SignUp = (props) => {
                   id="email"
                   label="Email Address"
                   name="email"
-                  onChange = {handleEmail}
-                  value = {email}
+                  onChange = {handleChange}
+                  value = {values.email}
                   autoComplete="email"
                 />
               </Grid>
@@ -158,8 +148,8 @@ const SignUp = (props) => {
                   id="username"
                   label="Username"
                   name="username"
-                  onChange = {handleUsername}
-                  value = {username}
+                  onChange = {handleChange}
+                  value = {values.username}
                   autoComplete="username"
                 />
               </Grid>
@@ -172,8 +162,8 @@ const SignUp = (props) => {
                   label="Password"
                   type="password"
                   id="password"
-                  onChange = {handlePassword}
-                  value = {password}
+                  onChange = {handleChange}
+                  value = {values.password}
                   autoComplete="current-password"
                 />
               </Grid>
@@ -211,3 +201,28 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(null, mapDispatchToProps)(SignUp)
+
+
+
+// OLD CODE FOR STATE AND HANDLING CHANGE
+// const [firstName, setFirstName] = useState("")
+// const [lastName, setLastName] = useState("")
+// const [email, setEmail] = useState("")
+// const [username, setUsername] = useState("")
+// const [password, setPassword] = useState("")
+
+// const handleUsername = (event) => {
+//   setUsername(event.target.value)
+// }
+// const handlePassword = (event) => {
+//   setPassword(event.target.value)
+// }
+// const handleFirstName = (event) => {
+//   setFirstName(event.target.value)
+// }
+// const handleLastName = (event) => {
+//   setLastName(event.target.value)
+// }
+// const handleEmail = (event) => {
+//   setEmail(event.target.value)
+// }

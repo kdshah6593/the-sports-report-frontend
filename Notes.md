@@ -1,8 +1,6 @@
 # Next Steps
 1. User Sign Up
 - Refactor the onChange Handle Events for username, password, email, first name, last name
-
-14. Convert all components into functional components
 - combine useStates into one with what Juan showed 
 
 16. Home Page
