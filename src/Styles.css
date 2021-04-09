@@ -58,3 +58,21 @@
     border: none;
     cursor: pointer;
 }
+
+.profileContainer {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* width: 100vh;
+    height: 50vh; */
+    /* justify-content: center; */
+    /* position: fixed; */
+    top: 25%;
+    left: 38%;
+
+}
+
+.profileTitle {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 64px;
+    margin: 0px;
+}

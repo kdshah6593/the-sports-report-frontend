@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Paper, List, ListItem, ListItemText, Divider, Badge } from '@material-ui/core'
 import PeopleIcon from '@material-ui/icons/People';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import "../Styles.css";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
       justifyContent: 'center',
       '& > *': {
-        margin: theme.spacing(0),
+        margin: theme.spacing(3),
         width: theme.spacing(60),
         height: theme.spacing(60),
       },
@@ -27,10 +28,6 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         flexDirection: 'column',
         textAlign: 'center',
-        width: '100%',
-        '& > *': {
-            height: theme.spacing(4),
-        }
     },
   }));
 
@@ -39,7 +36,7 @@ const Profile = (props) => {
     
     return (
         <>
-            <h1 className="center textColor landingTitle">Profile</h1>
+            <h1 className="center textColor profileTitle">Profile</h1>
             <div className={classes.root}>
                 <Paper elevation={3}>
                     <List component="nav" className={classes.listRoot}>
