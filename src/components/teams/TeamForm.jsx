@@ -34,10 +34,10 @@ const TeamForm = (props) => {
                 <br></br>
                 <TextField type="text" name="searchTeam" onChange={handleSearchChange} value={searchTeam} variant="outlined" size="small" />
                 <br></br><br></br>
-                <input type="submit" value="Search" />
+                <input type="submit" value="Search" class="btn" />
             </form>
             <br></br>
-            {searched === true ? <TeamResults searchResults={searchResults}/> : <p className="center">No Search Performed</p>}
+            {searched === true ? <TeamResults searchResults={searchResults}/> : <p className="center subText">No Search Performed</p>}
         </Paper>
     )
 }

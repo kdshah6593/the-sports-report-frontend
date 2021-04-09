@@ -34,10 +34,10 @@ const PlayerForm = (props) => {
                 <br></br>
                 <TextField type="text" name="searchPlayer" onChange={handleSearchChange} value={searchPlayer} variant="outlined" size="small"/>
                 <br></br><br></br>
-                <input type="submit" value="Search" />
+                <input type="submit" value="Search" class="btn"/>
             </form>
             <br></br>
-            {searched === true ? <PlayerResults searchResults={searchResults}/> : <p className="center">No Search Performed</p>}
+            {searched === true ? <PlayerResults searchResults={searchResults}/> : <p className="center subText">No Search Performed</p>}
         </Paper>
     )
 }

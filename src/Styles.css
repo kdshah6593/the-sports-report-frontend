@@ -48,3 +48,13 @@
 .subText {
     color:#000000;
 }
+
+.btn {
+    background-color: #E09F3E;
+    color: #fff;
+    font-size: 16px;
+    padding: 6px 30px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}

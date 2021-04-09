@@ -50,7 +50,7 @@ const PlayerResults = (props) => {
                     <RadioGroup name="player1" value={selectedOption} onChange={handleOptionChange}>
                         {players}
                     </RadioGroup>
-                    <input type="submit" value="Add Player" />
+                    <input type="submit" value="Add Player" class="btn" />
                 </form>
             </FormControl>
         </div>
