@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { List, ListItem, ListItemText, IconButton } from '@material-ui/core'
+import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,19 +13,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TeamList(props) {
+const TeamList = (props) => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = React.useState("");
+
+  let history = useHistory()
 
   const handleListItemClick = (event, index, team) => {
     setSelectedIndex(index);
     props.SelectTeam(team)
   };
 
+  const handleDeleteClick = (event, team) => {
+    console.log("im clicked")
+    console.log(team)
+    const dataToSend = {
+      sportsDBId: team.sportsDBId
+    }
+    fetch(`http://localhost:3001/api/v1/teams/${team.id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response => response.json())
+        .then(updatedUser => {
+            console.log(updatedUser)
+            props.deleteTeam(updatedUser.data)
+            history.push("/teams")
+        })
+  }
+
   const teams = props.teams.map((team, index) => (
-      <ListItem button selected={selectedIndex === index} onClick={(event) => handleListItemClick(event, index, team)} key={index}>
-          <ListItemText primary={team.name} className="subText" />
-          <IconButton edge="end">
+      <ListItem button selected={selectedIndex === index} key={index}>
+          <ListItemText primary={team.name} className="subText" onClick={(event) => handleListItemClick(event, index, team)} />
+          <IconButton edge="end" onClick={(event) => handleDeleteClick(event, team)}>
               <DeleteIcon />
           </IconButton>
       </ListItem>
@@ -37,3 +64,11 @@ export default function TeamList(props) {
     </div>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+      deleteTeam: userData => dispatch({type: 'DELETE_TEAM', payload: userData })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(TeamList);
