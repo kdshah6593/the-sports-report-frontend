@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# The Sports Report
+This is the documentation for the frontend of The Sports Report web app developed as a React-Redux project for Flatiron School.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The backend repo is available at `https://github.com/kdshah6593/the-sports-report-backend`
 
-## Available Scripts
+## Description
+The Sports Report is a web application that provides curated sports articles towards your favorite players and teams. Instead of searching various news sources, all the sources are combined into one place.
 
-In the project directory, you can run:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It uses `React 17.0.2`. It connects to a Rail API backend.
 
-### `yarn start`
+### APIs Used on the Frontend
+- Player/Team Information: [TheSportsDB API](https://www.thesportsdb.com/api.php)
+- News Source: [TheCurrents API](https://currentsapi.services/en)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+To use this app, check out the deployed version at [The Sports Report]()
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To play around with the code of the app in development mode, clone these repos:
+1. `$ git clone https://github.com/kdshah6593/the-sports-report-frontend`
+2. `$ git lcone https://github.com/kdshah6593/the-sports-report-backend`
 
-### `yarn test`
+## Usage
+After cloning, open up 2 terminals and access the directory for each of them in each terminal  `$ cd the-sports-report-frontend` & `$ cd the-sports-report-backend` (if nested under other directories be sure to include those in the path)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In your terminal running the BACKEND:
 
-### `yarn build`
+Run `$ bundle install` to add dependencies, then run `$ rails db:migrate`, and then start the server `$ rails s`. Note the port is `:3001` so it doesn't conflict the the frontend server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In your terminal running the FRONTEND:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run `yarn install && yarn start` or `npm install && npm start` (depending if you have yarn); this will open up the frontend page in your default browser. The page will reload if you make edits. You will see any lint errors in the console.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You only need to install once, after you can just run `yarn start` or `npm start`.
 
-### `yarn eject`
+To exit either server, run `CTRL + C` 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/kdshah6593/the-sports-report-frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Code of Conduct](https://github.com/kdshah6593/the-sports-report-frontend/blob/main/CODE_OF_CONDUCT.md).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
+This app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Code of Conduct
+Everyone interacting in the StudyDecks project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [Code of Conduct](https://github.com/kdshah6593/the-sports-report-frontend/blob/main/CODE_OF_CONDUCT.md).
