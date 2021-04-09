@@ -37,7 +37,7 @@ const menuStyles = makeStyles({
     },
   });
 
-function Header(props) {
+const Header = (props) => {
     const classes = useStyles();
     const menuClasses = menuStyles();
     const [state, setState] = React.useState({

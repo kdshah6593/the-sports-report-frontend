@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignIn(props) {
+const SignIn = (props) => {
   const classes = useStyles();
   let history = useHistory()
 

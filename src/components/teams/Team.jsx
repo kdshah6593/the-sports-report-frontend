@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../Card';
+import MediaCard from '../Card';
 import { Container, Grid, CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -27,7 +27,7 @@ const Team = (props) => {
 
     const articles = props.articles.map(article => (
         <Grid item key={article.id} xs={12} sm={6} md={4}>
-            <Card title={article.title} image={article.image} description={article.description} url={article.url} />
+            <MediaCard title={article.title} image={article.image} description={article.description} url={article.url} />
         </Grid>
     ))
     

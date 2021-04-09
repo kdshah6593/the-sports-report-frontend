@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-export default function Footer() {
+const Footer = () => {
     const classes = useStyles();
     return (
         <div>
@@ -44,3 +44,5 @@ export default function Footer() {
         </div>
     )
 }
+
+export default Footer;
