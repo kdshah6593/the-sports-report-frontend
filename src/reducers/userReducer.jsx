@@ -13,6 +13,10 @@ export default function userReducer(state = initialState, action) {
             return {...state, user: action.payload} //this will update the state user to reflect added player
         case 'ADD_TEAM':
             return {...state, user: action.payload} //this will udpate the state user to reflect added team
+        case 'DELETE_PLAYER':
+            return {...state, user: action.payload} //this will update the state user to reflect players after deletion
+        case 'DELETE_TEAM':
+            return {...state, user: action.payload} //this will update the state user to reflect teams after deletion
         case 'LOGOUT':
             return { ...initialState }
         case 'START_ADDING_ARTICLES_REQUEST':

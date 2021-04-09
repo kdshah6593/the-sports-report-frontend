@@ -1,26 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Card from '../Card'
+import { Container, Grid, CircularProgress } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-class Player extends React.Component {
-    state = {
-        name: this.props.player.name,
-    }
+const useStyles = makeStyles((theme) => ({
+    cardGrid: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+    },
+    cardMedia: {
+      paddingTop: '56.25%', // 16:9
+    },
+    cardContent: {
+      flexGrow: 1,
+    },
+    loading: {
+        display: 'flex',
+        justifyContent: 'center',
+      },
+  }));
 
-    render() {
-        const articles = this.props.articles.map(article =>
-            <div key={article.id}>
-                <img src={article.image} alt="" />
-                <p>{article.title}</p>
-            </div>
-            )
-        
-        return (
-            <div>
-                <p>{this.state.name}</p>
-                {this.props.requesting ? "Loading" : articles}
-            </div>
-        )
-    }
+const Player = (props) => {
+    const classes = useStyles();
+
+    const articles = props.articles.map(article => (
+        <Grid item key={article.id} xs={12} sm={6} md={4}>
+            <Card title={article.title} image={article.image} description={article.description} url={article.url} />
+        </Grid>
+    ))
+    
+    return (
+        <Container className={classes.cardGrid} maxWidth="md">
+            <Grid container spacing={3} className={classes.loading}>
+                {props.requesting ? <div><h3 className="subText">Loading...</h3><CircularProgress style={{ color: '#E09F3E'}}/></div> : articles}
+            </Grid>
+        </Container>
+    )
 }
 
 const mapStateToProps = state => {
@@ -31,6 +47,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Player);
-
-
-// this component should display the articles for the player that is passed through props and use async fetch request

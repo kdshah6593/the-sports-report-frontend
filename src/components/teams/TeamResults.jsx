@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
+import '../../Styles.css';
+import { Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core';
 
 const TeamResults = (props) => {
 
@@ -10,8 +12,7 @@ const TeamResults = (props) => {
     let history = useHistory()
     
     const handleOptionChange = (event) => {
-        console.log(event.target.value)
-        setSelectedOption(event.target.value)
+        setSelectedOption(parseInt(event.target.value))
     }
 
     const handleSubmit = (event) => {
@@ -44,15 +45,19 @@ const TeamResults = (props) => {
     if (props.searchResults === null) {
         teams = "No Results, please try again."
     } else {
-        teams = props.searchResults.map((team, index) => <label key={team.idTeam}><input type="radio" name="team" value={index} onChange={handleOptionChange}/>{team.strTeam} - {team.strLeague}</label>)
+        teams = props.searchResults.map((team, index) => <FormControlLabel key={team.idTeam} value={index} label={`${team.strTeam} - ${team.strLeague}`} control={<Radio style={{ color: '#E09F3E'}} />} />)
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                {teams}
-                <input type="submit" value="Add Team" />
-            </form>
+        <div className="center">
+            <FormControl component='fieldset'>
+                <form onSubmit={handleSubmit}>
+                    <RadioGroup name="team1" value={selectedOption} onChange={handleOptionChange}>
+                        {teams}
+                    </RadioGroup>
+                    <input type="submit" value="Add Team" />
+                </form>
+            </FormControl>
         </div>
     )
 }

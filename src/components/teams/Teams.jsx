@@ -1,38 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Team from './Team';
+import TeamList from './TeamList';
 import { connect } from 'react-redux';
-import { fetchArticles } from '../../actions/fetchArticles'
+import { fetchArticles } from '../../actions/fetchArticles';
+import { Link } from 'react-router-dom';
+import '../../Styles.css';
+import { makeStyles } from '@material-ui/core/styles';
+import { Paper, Grid, Button } from '@material-ui/core';
 
-class Teams extends React.Component {
-    state = {
-        selectedTeam: ""
-    }
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  }));
 
-    selectTeam = (team) => {
-        console.log("ive been clicked");
-        this.setState({
-            selectedTeam: team
-        })
-        this.props.fetchArticles(team)
+const Teams = (props) => {
+    const classes = useStyles();
+
+    const [selectedTeam, useSelectedTeam] = useState("")
+
+    const SelectTeam = (team) => {
+        useSelectedTeam(team)
+        props.fetchArticles(team)
     }
     
-    render() {
-        const teams = this.props.teams.map( (team, index) => <li key={index} onClick={() => this.selectTeam(team)}>{team.name}</li>);
-        return (
-            <div>
-                <div>
-                    <h4>Team List</h4>
-                    <ul>
-                        {teams}
-                    </ul>
-                </div>
-                <div>
-                    <h4>Team Details</h4>
-                    {this.state.selectedTeam ? <Team key={this.state.selectedTeam.sportsDBId} team={this.state.selectedTeam} /> : <p>No Team Selected</p> }
-                </div>
-            </div>
-        )
-    }
+    return (
+        <div className={classes.root} style={{ padding: 10 }}>
+            <Grid container spacing={1}>
+                <Grid item xs={2}>
+                    <Paper className={classes.paper}>
+                        <h2 className="textColor">Your Favorite Teams</h2>
+                        <Button variant="contained" style={{ background: '#E09F3E', color: 'white'}}><Link to={"/add-team"} style={{ color: 'inherit', textDecoration: 'inherit'}}>Add Team</Link></Button>
+                        <TeamList teams={props.teams} SelectTeam={SelectTeam} />
+                    </Paper>
+                </Grid>
+                <Grid item xs={10}>
+                    <Paper className={classes.paper}>
+                        <h2 className="textColor">{selectedTeam.name} News Articles</h2>
+                        {selectedTeam ? <Team key={selectedTeam.sportsDBId} team={selectedTeam} /> : <h3 className="subText">No Team Selected</h3> }
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
+    )
 }
 
 const mapDispatchToProps = dispatch => {

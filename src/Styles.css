@@ -1,0 +1,50 @@
+.form {
+    margin-top: 10vh;
+    margin-left: 55vh;
+    margin-right: 55vh;
+    padding: 3vh;
+}
+
+.center {
+    text-align: center;
+}
+
+.heading {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.textColor {
+    color: #E09F3E;
+}
+
+
+.imgSize {
+    max-width: 720px;
+    max-height: 1280px;
+}
+
+.landingContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.landingTitle {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 64px;
+}
+
+.landingText {
+    font-size: 24px;
+
+}
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: 'center';
+}
+
+.subText {
+    color:#000000;
+}

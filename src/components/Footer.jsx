@@ -1,45 +1,44 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
+import { CssBaseline, Typography, Container, Link } from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary">
         {'Copyright © '}
-        <Link color="inherit" href="https://github.com/kdshah6593/the-sports-report-frontend">
-          Kunal Shah
-        </Link>{' '}
         {new Date().getFullYear()}
-        {'.'}
+        {' '}
+        {'MIT Licensed:'}
       </Typography>
     );
   }
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-    },
     footer: {
-        padding: theme.spacing(3, 2),
+        padding: theme.spacing(2, 2),
         marginTop: 'auto',
-        backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+        backgroundColor: '#E09F3E',
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
+        height: '4.5rem',
+        textAlign: 'center',
     },
+    phantom: {
+        height: '10vh',
+    }
 }))
 
 export default function Footer() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <div>
             <CssBaseline />
+            <div className={classes.phantom}></div>
             <footer className={classes.footer}>
-                <Container maxWidth="sm">
-                    <Typography variant="body1">My sticky footer can be found here.</Typography>
+                <Container maxWidth="false">
                     <Copyright />
+                    <Typography variant="body1"><Link color="inherit" href="https://github.com/kdshah6593/the-sports-report-frontend">The Sports Report</Link> - <Link color="inherit" href="https://github.com/kdshah6593">Kunal Shah</Link></Typography>
                 </Container>
             </footer>
         </div>
