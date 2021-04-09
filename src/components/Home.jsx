@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useHistory } from 'react-router';
 import '../Styles.css';
 import tennisPlayer from '../images/tennis-player.jpg';
