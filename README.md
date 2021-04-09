@@ -17,7 +17,7 @@ To use this app, check out the deployed version at [The Sports Report]()
 
 To play around with the code of the app in development mode, clone these repos:
 1. `$ git clone https://github.com/kdshah6593/the-sports-report-frontend`
-2. `$ git lcone https://github.com/kdshah6593/the-sports-report-backend`
+2. `$ git clone https://github.com/kdshah6593/the-sports-report-backend`
 
 ## Usage
 After cloning, open up 2 terminals and access the directory for each of them in each terminal  `$ cd the-sports-report-frontend` & `$ cd the-sports-report-backend` (if nested under other directories be sure to include those in the path)
