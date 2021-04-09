@@ -61,6 +61,7 @@ const Header = (props) => {
     }
 
     const topList = [(<Link to={`/players`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Players</Link>), (<Link to={`/teams`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Teams</Link>)]
+    const botList = [(<Link to={`/profile`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Profile</Link>), "Logout"]
 
     const list = (anchor) => (
         <div
@@ -81,7 +82,7 @@ const Header = (props) => {
             </List>
             <Divider />
             <List>
-                {["Profile", "Logout"].map((text, index) => (
+                {botList.map((text, index) => (
                     <ListItem onClick={handleClick} button key={index}>
                         <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon /> : <ExitToAppIcon />}</ListItemIcon>
                         <ListItemText primary={text} />
