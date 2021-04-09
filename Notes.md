@@ -2,13 +2,6 @@
 1. User Sign Up
 - Refactor the onChange Handle Events for username, password, email, first name, last name
 
-4. Remove a Player or Team from your list
-- delete fetch request to be sent
-
-8. Backend side, clean up controllers, delete any not used and then adjust the config/routes.rb file
-
-12. Clean Up Code
-
 14. Convert all components into functional components
 - combine useStates into one with what Juan showed 
 
@@ -16,7 +9,9 @@
 - convert player and team button into plain text
 - make the whole image/object listen (event) for click, which will history.push to the new route
 
-17. Error handleOptionChange
+17. Error handling
+
+18. ReadME(s)
 
 # Stretch Goals
 1. Finishing Adding a Profile Page Component
