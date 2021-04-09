@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { Link } from 'react-router-dom';
 import '../Styles.css';
-import { makeStyles } from '@material-ui/core/styles';
 import sportsPic from '../images/sports-magazine.png';
+import { Button, ButtonGroup } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import BeenhereSharpIcon from '@material-ui/icons/BeenhereSharp';
 
 const useStyles = makeStyles((theme) => ({

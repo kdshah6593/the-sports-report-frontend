@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../Card'
-
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import Card from '../Card';
+import { Container, Grid, CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const useStyles = makeStyles((theme) => ({
     cardGrid: {

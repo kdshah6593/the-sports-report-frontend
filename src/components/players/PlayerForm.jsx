@@ -1,7 +1,6 @@
 import React from 'react';
 import PlayerResults from './PlayerResults'
-import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField';
+import { Paper, TextField } from '@material-ui/core';
 import '../../Styles.css';
 
 class PlayerForm extends React.Component {

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../Styles.css';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import tennisPlayer from '../images/tennis-player.jpg';
 import soccerTeam from '../images/soccer-team.jpg';
+import { Button, Paper } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {        

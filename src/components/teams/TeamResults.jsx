@@ -2,11 +2,7 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import '../../Styles.css';
-
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import { Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core';
 
 const TeamResults = (props) => {
 

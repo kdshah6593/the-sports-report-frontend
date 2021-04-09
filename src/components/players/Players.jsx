@@ -3,12 +3,10 @@ import Player from './Player';
 import PlayerList from './PlayerList';
 import { connect } from 'react-redux';
 import { fetchArticles } from '../../actions/fetchArticles';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import '../../Styles.css';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+import { Paper, Grid, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {

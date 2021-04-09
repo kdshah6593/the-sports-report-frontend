@@ -1,7 +1,6 @@
 import React from 'react';
-import TeamResults from './TeamResults'
-import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField';
+import TeamResults from './TeamResults';
+import { Paper, TextField } from '@material-ui/core';
 import '../../Styles.css';
 
 class TeamForm extends React.Component {
