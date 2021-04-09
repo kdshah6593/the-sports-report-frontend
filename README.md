@@ -13,7 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - News Source: [TheCurrents API](https://currentsapi.services/en)
 
 ## Installation
-To use this app, check out the deployed version at [The Sports Report]()
+To use this app, check out the deployed version at [The Sports Report](https://the-sports-report.herokuapp.com/)
 
 To play around with the code of the app in development mode, clone these repos:
 1. `$ git clone https://github.com/kdshah6593/the-sports-report-frontend`
