@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import '../../Styles.css';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core';
-import { urlDomain } from '../actions/urlDomain';
+import { urlDomain } from '../../actions/urlDomain';
 
 const TeamResults = (props) => {
 

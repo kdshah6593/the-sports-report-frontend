@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { List, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core'
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { urlDomain } from '../actions/urlDomain';
+import { urlDomain } from '../../actions/urlDomain';
 
 const useStyles = makeStyles((theme) => ({
   root: {
