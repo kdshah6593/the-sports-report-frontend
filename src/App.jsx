@@ -5,11 +5,12 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/Signup';
 import LandingPage from './components/LandingPage'
+import PlayerForm from './components/players/PlayerForm';
+import TeamForm from './components/teams/TeamForm';
+import Profile from './components/Profile';
 import PlayersContainer from './containers/PlayersContainer'
 import TeamsContainer from './containers/TeamsContainer'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import PlayerForm from './components/players/PlayerForm';
-import TeamForm from './components/teams/TeamForm';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -80,6 +81,16 @@ const App = (props) => {
               <>
                 <Header />
                 <TeamForm />
+              </>
+            )
+          )}/>
+          <Route exact path="/profile" render={() => (
+            loggedIn() ? (
+              <Redirect to="/"/>
+            ) : (
+              <>
+                <Header />
+                <Profile />
               </>
             )
           )}/>
