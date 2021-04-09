@@ -25,26 +25,29 @@ const TeamList = (props) => {
   };
 
   const handleDeleteClick = (event, team) => {
-    console.log("im clicked")
-    console.log(team)
-    const dataToSend = {
-      sportsDBId: team.sportsDBId
+    const r = window.confirm("Are you sure you want to delete this team?")
+    if ( r !== true ) {
+      history.replace("/teams")
+    } else {
+      const dataToSend = {
+        sportsDBId: team.sportsDBId
+      }
+      fetch(`http://localhost:3001/api/v1/teams/${team.id}`, {
+              method: 'DELETE',
+              headers: {
+                  "Content-Type": "application/json",
+                  "Accept": "application/json",
+                  Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+              },
+              body: JSON.stringify(dataToSend)
+          })
+          .then(response => response.json())
+          .then(updatedUser => {
+              console.log(updatedUser)
+              props.deleteTeam(updatedUser.data)
+              history.push("/teams")
+          })
     }
-    fetch(`http://localhost:3001/api/v1/teams/${team.id}`, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
-            },
-            body: JSON.stringify(dataToSend)
-        })
-        .then(response => response.json())
-        .then(updatedUser => {
-            console.log(updatedUser)
-            props.deleteTeam(updatedUser.data)
-            history.push("/teams")
-        })
   }
 
   const teams = props.teams.map((team, index) => (
