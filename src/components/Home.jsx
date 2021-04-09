@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router';
 import '../Styles.css';
 import tennisPlayer from '../images/tennis-player.jpg';
 import soccerTeam from '../images/soccer-team.jpg';
@@ -31,11 +32,21 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '5vh',
         backgroundSize:"50vh 65vh",
         position: "relative",
+        cursor: "pointer",
     }
 }))
 
 const Home = () => {
     const classes = useStyles();
+    let history = useHistory()
+
+    const handleClick = (event) => {
+        if (event.target.innerText === "PLAYERS") {
+            history.push("/players");
+        } else if (event.target.innerText === "TEAMS") {
+            history.push("/teams");
+        }
+    }
 
     return (
         <div className="homeContainer">
@@ -43,14 +54,14 @@ const Home = () => {
                 <h2>Select an Option To Get Started</h2>
             </div>
             <div className={classes.paperRoot}>
-                <Paper elevation={3} className={classes.paper} style={{ backgroundImage: `url(${tennisPlayer})`}} >
-                    <div className={classes.root} style={{ position: "absolute", bottom: "0", width: "50%", marginLeft: '25%' }}>
-                        <Button variant="contained" style={{ background: '#E09F3E', color: 'white'}}><Link to={`/players`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Players</Link></Button>
+                <Paper elevation={3} className={classes.paper} style={{ backgroundImage: `url(${tennisPlayer})` }} onClick={handleClick}>
+                    <div className={classes.root} style={{ position: "absolute", bottom: "0", width: "100%" }}>
+                        <Button style={{ background: '#E09F3E', color: 'white'}}>Players</Button>
                     </div>
                 </Paper>
-                <Paper elevation={3} className={classes.paper} style={{ backgroundImage: `url(${soccerTeam})`}}>
-                    <div className={classes.root} style={{ position: "absolute", bottom: "0", width: "50%", marginLeft: '25%' }}>
-                        <Button variant="contained" style={{ background: '#E09F3E', color: 'white'}}><Link to={`/teams`} style={{ color: 'inherit', textDecoration: 'inherit'}}>Teams</Link></Button>
+                <Paper elevation={3} className={classes.paper} style={{ backgroundImage: `url(${soccerTeam})` }} onClick={handleClick}>
+                    <div className={classes.root} style={{ position: "absolute", bottom: "0", width: "100%" }}>
+                        <Button variant="contained" style={{ background: '#E09F3E', color: 'white'}}>Teams</Button>
                     </div>
                 </Paper>
             </div>
