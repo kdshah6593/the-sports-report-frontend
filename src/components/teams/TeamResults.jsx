@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import '../../Styles.css';
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core';
+import { urlDomain } from '../actions/urlDomain';
 
 const TeamResults = (props) => {
 
@@ -25,7 +26,7 @@ const TeamResults = (props) => {
             sportsDBId: selectedTeam.idTeam
         }
 
-        fetch("http://localhost:3001/api/v1/teams", {
+        fetch(urlDomain() + "/api/v1/teams", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

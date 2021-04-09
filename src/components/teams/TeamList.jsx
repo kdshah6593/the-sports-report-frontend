@@ -4,6 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { List, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core'
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
+import { urlDomain } from '../actions/urlDomain';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +33,7 @@ const TeamList = (props) => {
       const dataToSend = {
         sportsDBId: team.sportsDBId
       }
-      fetch(`http://localhost:3001/api/v1/teams/${team.id}`, {
+      fetch(urlDomain() + `/api/v1/teams/${team.id}`, {
               method: 'DELETE',
               headers: {
                   "Content-Type": "application/json",

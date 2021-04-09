@@ -6,6 +6,7 @@ import '../Styles.css';
 import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container} from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
+import { urlDomain } from '../actions/urlDomain';
 
 
 function Copyright() {
@@ -75,7 +76,7 @@ const SignUp = (props) => {
       first_name: values.firstName,
       last_name: values.lastName
     }}
-    fetch("http://localhost:3001/api/v1/users", {
+    fetch(urlDomain() + "/api/v1/users", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

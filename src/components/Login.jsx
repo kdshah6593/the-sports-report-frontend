@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
+import { urlDomain } from '../actions/urlDomain';
 
 
 function Copyright() {
@@ -70,7 +71,7 @@ const SignIn = (props) => {
       username: username,
       password: password
     }}
-    fetch("http://localhost:3001/api/v1/login", {
+    fetch(urlDomain() +"/api/v1/login", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
