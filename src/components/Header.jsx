@@ -55,8 +55,6 @@ const Header = (props) => {
     const handleClick = (event) => {
         if (event.target.innerText === "Logout") {
             props.logout();
-        } else {
-            //code useHistory to push to profile page
         }
     }
 
