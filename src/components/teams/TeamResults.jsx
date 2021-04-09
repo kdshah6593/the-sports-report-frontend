@@ -16,8 +16,7 @@ const TeamResults = (props) => {
     let history = useHistory()
     
     const handleOptionChange = (event) => {
-        console.log(event.target.value)
-        setSelectedOption(event.target.value)
+        setSelectedOption(parseInt(event.target.value))
     }
 
     const handleSubmit = (event) => {
@@ -50,14 +49,14 @@ const TeamResults = (props) => {
     if (props.searchResults === null) {
         teams = "No Results, please try again."
     } else {
-        teams = props.searchResults.map((team, index) => <FormControlLabel key={team.idTeam} value={index} label={`${team.strTeam} - ${team.strLeague}`} control={<Radio />} />)
+        teams = props.searchResults.map((team, index) => <FormControlLabel key={team.idTeam} value={index} label={`${team.strTeam} - ${team.strLeague}`} control={<Radio style={{ color: '#E09F3E'}} />} />)
     }
 
     return (
         <div className="center">
             <FormControl component='fieldset'>
                 <form onSubmit={handleSubmit}>
-                    <RadioGroup onChange={handleOptionChange}>
+                    <RadioGroup name="team1" value={selectedOption} onChange={handleOptionChange}>
                         {teams}
                     </RadioGroup>
                     <input type="submit" value="Add Team" />
