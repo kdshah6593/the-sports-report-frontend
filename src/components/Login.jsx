@@ -48,6 +48,13 @@ const SignIn = (props) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
+  const renderError = (response) => {
+    response.json().then(message => {
+      console.log(message)
+      window.alert(message.errors[0])
+    })
+  }
+
   const handleUsername = (event) => {
     setUsername(event.target.value)
   }
@@ -71,13 +78,22 @@ const SignIn = (props) => {
       },
       body: JSON.stringify(inputData)
     })
-    .then(response => response.json())
+    .then(response => {
+      if (response.status === 401) {
+        renderError(response)
+      } else {
+        return response.json()
+      }
+    })
     .then(json => {
       localStorage.setItem('jwt_token', json.jwt)
       const userId = json.user.data.id
       localStorage.setItem('currentUser', userId)
       props.addUser(json.user.data)
       history.push("/home")
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
 

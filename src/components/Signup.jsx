@@ -58,6 +58,13 @@ const SignUp = (props) => {
     setValues({...values, [event.target.name]: event.target.value})
   }
 
+  const renderError = (response) => {
+    response.json().then(message => {
+      console.log(message)
+      window.alert(message.errors.join(", "))
+    })
+  }
+
   const signupFetch = (event) => {
     event.preventDefault()
     console.log("I'm signing up")
@@ -76,13 +83,22 @@ const SignUp = (props) => {
       },
       body: JSON.stringify(inputData)
     })
-    .then(response => response.json())
+    .then(response => {
+      if(response.status === 406) {
+          renderError(response)
+      } else {
+          return response.json()
+      }
+    })
     .then(json => {
       localStorage.setItem('jwt_token', json.jwt)
       const userId = json.user.data.id
       localStorage.setItem('currentUser', userId)
       props.addUser(json.user.data)
       history.push("/home")
+    })
+    .catch(error => {
+      console.log(error);
     })
   }
 
