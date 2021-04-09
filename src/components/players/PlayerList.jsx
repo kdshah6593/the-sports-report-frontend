@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { List, ListItem, ListItemText, IconButton } from '@material-ui/core'
+import { List, ListItem, ListItemText, IconButton, Divider } from '@material-ui/core'
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 
@@ -48,12 +48,15 @@ const PlayerList = (props) => {
   }
 
   const players = props.players.map((player, index) => (
-      <ListItem button selected={selectedIndex === index} key={index}>
-          <ListItemText primary={player.name} className="subText" onClick={(event) => handleListItemClick(event, index, player)} />
-          <IconButton edge="end" onClick={(event) => handleDeleteClick(event, player)}>
-              <DeleteIcon />
-          </IconButton>
-      </ListItem>
+      <>
+        <ListItem button selected={selectedIndex === index} key={index}>
+            <ListItemText primary={player.name} className="subText" onClick={(event) => handleListItemClick(event, index, player)} />
+            <IconButton edge="end" onClick={(event) => handleDeleteClick(event, player)}>
+                <DeleteIcon />
+            </IconButton>
+        </ListItem>
+        <Divider />
+      </>
   ))
 
   return (
