@@ -1,55 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TeamResults from './TeamResults';
 import { Paper, TextField } from '@material-ui/core';
 import '../../Styles.css';
 
-class TeamForm extends React.Component {
-    state = {
-        searchTeam: "",
-        searchResults: [],
-        searched: false
-    }
+const TeamForm = (props) => {
 
-    handleSearchChange = (event) => {
-        console.log(event.target.value)
-        this.setState({
-            searchTeam: event.target.value
-        })
+    const [searchTeam, setSearchTeam] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const [searched, setSearched] = useState(false);
+
+    const handleSearchChange = (event) => {
+        setSearchTeam(event.target.value);
     }
     
-    handleSearchSubmit = (event) => {
+    const handleSearchSubmit = (event) => {
         event.preventDefault()
         const url = "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t="
         console.log("Form has been submitted")
-        let team = this.state.searchTeam.replace(" ", "%20")
-        this.setState({
-            searchTeam: ""
-        })
+        let team = searchTeam.replace(" ", "%20")
+        setSearchTeam("")
         fetch(url+`${team}`)
         .then(resp => resp.json())
         .then(data => {
-            this.setState({
-                searchResults: data.teams,
-                searched: true
-            })
+            setSearchResults(data.teams);
+            setSearched(true);
         })
     }
 
-    render() {
-        return (
-            <Paper className="form">
-                <form className="center" onSubmit={this.handleSearchSubmit}>
-                    <label className="heading" htmlFor="searchTeam">Team Search</label>
-                    <br></br>
-                    <TextField type="text" name="searchTeam" onChange={this.handleSearchChange} value={this.state.searchTeam} variant="outlined" size="small" />
-                    <br></br><br></br>
-                    <input type="submit" value="Search" />
-                </form>
+    return (
+        <Paper className="form">
+            <form className="center" onSubmit={handleSearchSubmit}>
+                <label className="heading" htmlFor="searchTeam">Team Search</label>
                 <br></br>
-                {this.state.searched === true ? <TeamResults searchResults={this.state.searchResults}/> : <p className="center">No Search Performed</p>}
-            </Paper>
-        )
-    }
+                <TextField type="text" name="searchTeam" onChange={handleSearchChange} value={searchTeam} variant="outlined" size="small" />
+                <br></br><br></br>
+                <input type="submit" value="Search" />
+            </form>
+            <br></br>
+            {searched === true ? <TeamResults searchResults={searchResults}/> : <p className="center">No Search Performed</p>}
+        </Paper>
+    )
 }
 
 export default TeamForm;
