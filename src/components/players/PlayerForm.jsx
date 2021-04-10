@@ -37,7 +37,7 @@ const PlayerForm = (props) => {
                 <input type="submit" value="Search" class="btn"/>
             </form>
             <br></br>
-            {searched === true ? <PlayerResults searchResults={searchResults}/> : <p className="center subText">No Search Performed</p>}
+            {searched !== true ? <p className="center subText">No Search Performed</p> : searchResults !== null ? <PlayerResults searchResults={searchResults}/> : <p className="center subText">No Results Found</p> }
         </Paper>
     )
 }

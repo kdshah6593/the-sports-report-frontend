@@ -37,7 +37,7 @@ const TeamForm = (props) => {
                 <input type="submit" value="Search" class="btn" />
             </form>
             <br></br>
-            {searched === true ? <TeamResults searchResults={searchResults}/> : <p className="center subText">No Search Performed</p>}
+            {searched !== true ? <p className="center subText">No Search Performed</p> : searchResults !== null ? <TeamResults searchResults={searchResults}/> : <p className="center subText">No Results Found</p> }
         </Paper>
     )
 }
