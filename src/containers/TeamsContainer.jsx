@@ -10,10 +10,10 @@ const TeamsContainer = (props) => {
     )
 }
 
-const mapDispatchToProps = state => {
+const mapStateToProps = state => {
     return {
         teams: state.user.attributes.teams
     }
 }
 
-export default connect(mapDispatchToProps)(TeamsContainer);
+export default connect(mapStateToProps)(TeamsContainer);
