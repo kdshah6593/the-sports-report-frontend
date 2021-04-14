@@ -5,6 +5,7 @@ import tennisPlayer from '../images/tennis-player.jpg';
 import soccerTeam from '../images/soccer-team.jpg';
 import { Button, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+// import Counter from './Counter'
 
 const useStyles = makeStyles((theme) => ({
     root: {        
@@ -51,6 +52,7 @@ const Home = () => {
         <div className="homeContainer">
             <div className="center textColor">
                 <h2>Select an Option To Get Started</h2>
+                {/* <Counter /> */}
             </div>
             <div className={classes.paperRoot}>
                 <Paper elevation={3} className={classes.paper} style={{ backgroundImage: `url(${tennisPlayer})` }} onClick={handleClick}>
